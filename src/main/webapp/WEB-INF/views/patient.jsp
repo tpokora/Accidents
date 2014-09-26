@@ -7,47 +7,68 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<c:url value="/resources/css/style.css" /> ">
+<link rel="stylesheet" href="<c:url value="/resources/css/patient.css" /> ">
 </head>
 <body>
-	<a href="<c:url value="/"/>">Strona glowna</a>
+<div id="wrapper">
+	<div class="homeLink">
+		<a href="<c:url value="/"/>">Strona glowna</a>
+	</div>
+	
 	<h2>Pacjent:</h2>
-	<div>Imie: ${patient.firstName}</div>
-	<div>Nazwisko: ${patient.lastName}</div>
-	<div>Uraz: ${patient.accident}</div>
-	<div>Data: ${patient.accidentDate}</div>
+	<div><b>Imie:</b> ${patient.firstName}</div>
+	<div><b>Nazwisko:</b> ${patient.lastName}</div>
+	<div><b>Uraz:</b> ${patient.accident}</div>
+	<div><b>Data:</b> ${patient.accidentDate}</div>
 	<h3>Wpis z leczenia:</h3>
-	<form:form action="newrecord" modelAttribute="record">
-		<div>
-			Data:
-			<form:input path="entryDate" placeholder="DD/MM/YYYY HH:MM" />
-		</div>
+	<form:form id="newrecordForm" action="newrecord" modelAttribute="record">
+		<div>Data:</div>
+		<div><form:input path="entryDate" placeholder="DD/MM/YYYY HH:MM" class="input"/></div>
 		<div>
 			Stopien bolu:
 			<form:select path="painLvl" items="${painLevelComboBox}" />
 		</div>
 		<div>Opis:</div>
 		<div>
-			<form:textarea path="description" />
+			<form:textarea path="description" class="input" />
 		</div>
-		<div>
-			<input type="submit" value="Dodaj" />
-		</div>
+		<input id="newrecordButton" type="submit" value="Dodaj" />
 	</form:form>
 	<hr />
-	Leczenie:
-	<table>
+	<table id="recordTable">
+		<tr>
+			<td id="tableHeader" colspan="3">Leczenie:</td>
+		</tr>
 		<tr>
 			<th>Opis</th>
 			<th>Nasilenie bólu</th>
 			<th>Data</th>
 		</tr>
 		<c:forEach var="record" items="${records}">
-			<tr>
-				<td>${record.description}</td><td>${record.painLvl}</td><td>${record.entryDate}</td>
+			<tr class="record">
+				<td>${record.description}</td>
+				<c:choose>
+					<c:when test="${(record.painLvl <= 10) && (record.painLvl > 8)}">
+						<td class="center max"><b>${record.painLvl}</b></td>
+					</c:when>
+					<c:when test="${(record.painLvl < 9) && (record.painLvl > 6)}">
+						<td class="center high"><b>${record.painLvl}</b></td>
+					</c:when>
+					<c:when test="${(record.painLvl < 7) && (record.painLvl > 4)}">
+						<td class="center medium"><b>${record.painLvl}</b></td>
+					</c:when>
+					<c:when test="${(record.painLvl < 5) && (record.painLvl > 2)}">
+						<td class="center low"><b>${record.painLvl}</b></td>
+					</c:when>
+					<c:otherwise>
+						<td class="center min"><b>${record.painLvl}</b></td>
+					</c:otherwise>
+				</c:choose>
+				<td class="center">${record.entryDate}</td>
 			</tr>
 		</c:forEach>
-
 	</table>
-
+</div>
 </body>
 </html>
