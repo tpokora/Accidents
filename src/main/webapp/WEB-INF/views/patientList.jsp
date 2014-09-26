@@ -22,9 +22,9 @@
 			<li>
 				<div onclick="redirect(${patient.id})">
 					<ul>
-						<li>${patient.firstName} ${patient.lastName}</li>
-						<li>${patient.accident}</li>
-						<li>${patient.accidentDate}</li>
+						<li style="font-weight: bold; font-size: 16px;">${patient.firstName} ${patient.lastName}</li>
+						<li style="font-size: 14px;">Uraz: ${patient.accident}</li>
+						<li style="font-size: 10px;">Data: ${patient.accidentDate}</li>
 					</ul>
 				</div>
 			</li>
