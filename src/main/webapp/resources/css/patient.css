@@ -26,7 +26,8 @@
 }
 
 #newrecordForm .input {
-	width: 196px;
+	padding: 4px;
+	width: 190px;
 	border: 1px solid #ddd;
 }
 

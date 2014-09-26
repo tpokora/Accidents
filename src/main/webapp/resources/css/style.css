@@ -9,6 +9,22 @@
 	background-color: #eee;
 }
 
+.error {
+	padding: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	font-size: 16px;
+	color: #FF2D00;	
+	display: none;
+	text-shadow: 0px 0px 1px #FF120A;
+	display: none;
+}
+
+.errorOnRight {
+	float: left;	
+	margin-left: 20px;
+}
+
 .center {
 	text-align: center;
 }

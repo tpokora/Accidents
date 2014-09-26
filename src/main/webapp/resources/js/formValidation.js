@@ -40,3 +40,25 @@ function newPatientformValidation(formName) {
 	else
 		return true;
 }
+
+function newrecordFormValidation(formName) {
+	var form = document.getElementById(formName);
+	var errors = 0;
+	if (!dateValidation(form.entryDate.value)) {
+		dateError.style.display = "block";
+		errors = 1;
+	} else {
+		dateError.style.display = "none";
+	}
+	if (form.description.value == '') {
+		descError.style.display = "block";
+		errors = 1;
+	} else {
+		descError.style.display = "none";
+	}
+
+	if (errors == 1)
+		return false;
+	else
+		return true;
+}

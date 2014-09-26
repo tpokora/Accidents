@@ -63,8 +63,3 @@ h2 {
 .homeLink a:hover {
 	background-color: #2EA4D4;
 }
-
-.error {
-	color: red;	
-	display: none;
-}

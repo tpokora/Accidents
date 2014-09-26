@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/style.css" /> ">
 <link rel="stylesheet" href="<c:url value="/resources/css/patient.css" /> ">
+<script type="text/javascript" src="<c:url value="/resources/js/formValidation.js" />"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -22,16 +23,28 @@
 	<div><b>Uraz:</b> ${patient.accident}</div>
 	<div><b>Data:</b> ${patient.accidentDate}</div>
 	<h3>Wpis z leczenia:</h3>
-	<form:form id="newrecordForm" action="newrecord" modelAttribute="record">
+	<form:form id="newrecordForm" action="newrecord" modelAttribute="record" 
+		onsubmit="return newrecordFormValidation('newrecordForm');">
 		<div>Data:</div>
-		<div><form:input path="entryDate" placeholder="DD/MM/YYYY HH:MM" class="input"/></div>
+		<div>
+			<div style="float: left;">
+				<form:input name="entryDate" path="entryDate" 
+					placeholder="DD/MM/YYYY HH:MM" class="input" />
+			</div>
+			<div id="dateError" class="error errorOnRight">Zly format daty!</div>
+			<br style="clear: both;" />
+		</div>
 		<div>
 			Stopien bolu:
 			<form:select path="painLvl" items="${painLevelComboBox}" />
 		</div>
 		<div>Opis:</div>
 		<div>
-			<form:textarea path="description" class="input" />
+			<div style="float: left;">
+				<form:textarea name="description" path="description" class="input" />
+			</div>
+			<div id="descError" class="error errorOnRight">Brak opisu!</div>
+			<br style="clear: both;" />
 		</div>
 		<input id="newrecordButton" type="submit" value="Dodaj" />
 	</form:form>
