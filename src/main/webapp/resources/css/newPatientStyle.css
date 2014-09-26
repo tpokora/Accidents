@@ -15,6 +15,11 @@ h2 {
 	width: 200px;
 	padding: 6px;
 	text-align: center;
+	border: 1px sold grey;
+}
+
+#patientForm .input input:focus, textarea:focus {
+	border: 1px solid #2EA4D4;
 }
 
 #patientForm div {

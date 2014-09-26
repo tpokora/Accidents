@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+h2 {
+	text-align: center;
+}
+#patientList {
+	list-style-type: none;
+	width: 450px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#patientList li div ul {
+	list-style-type: none;
+	width: 400px;
+	margin: 6px;
+	padding: 4px;
+	background-color: #fff;
+}
+
+#patientList li div ul:hover {
+	background-color: #ddd;
+}
+
+#patientList li div ul li {
+	list-style-type: none;
+}
+
+.homeLink {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background-color: #2E7CD4;
+}
+
+.homeLink:hover {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.homeLink a {
+	display: block;
+	padding: 4px;
+	text-decoration: none;
+	color: #fff;
+}
+
+.homeLink a:hover {
+	background-color: #2EA4D4;
+}
