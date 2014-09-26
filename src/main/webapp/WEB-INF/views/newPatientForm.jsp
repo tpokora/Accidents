@@ -11,17 +11,22 @@
 <style>
 	.error {
 		color: red;	
+		display: none;
 	}
 </style>
 </head>
 <body>
 <h2>Nowy Pacjent:</h2>
-	<form:form id="patientForm" action="new" modelAttribute="patient" onsubmit="return formValidation('patientForm')">
-		<div>Imie:</div><div><form:input path="firstName" name="firstName" /><div id="ferror" class="error"></div></div>
-		<div>Nazwisko:</div><div><form:input path="lastName" name="lastName" /><div id="lerror" class="error"></div></div></div>
-		<div>Uraz:</div><div><form:textarea path="accident" name="accident" /><div id="aerror" class="error"></div></div></div>
+	<form:form id="patientForm" action="new" modelAttribute="patient" onsubmit="return newPatientformValidation('patientForm')">
+		<div>Imie:</div><div><form:input path="firstName" name="firstName" />
+		<div id="ferror" class="error">Nie podales imienia!</div></div>
+		<div>Nazwisko:</div><div><form:input path="lastName" name="lastName" />
+		<div id="lerror" class="error">Nie podales nazwiska!</div></div>
+		<div>Uraz:</div><div><form:textarea path="accident" name="accident" />
+		<div id="aerror" class="error">Nie opisales urazu!</div></div>
 		<div>Data wypadku:</div><div><form:input path="accidentDate" name="accidentDate" 
-			placeholder="DD/MM/YYYY HH:MM"/><div id="aderror" class="error"></div></div>
+			placeholder="DD/MM/YYYY HH:MM"/>
+		<div id="aderror" class="error">Zly format daty!</div></div>
 		<div><input type="submit" value="Dodaj pacjenta" /></div>
 	</form:form>
 	<p><a href="<c:url value="/"/>">Powrót</a>

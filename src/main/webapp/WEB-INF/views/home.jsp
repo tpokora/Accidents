@@ -2,17 +2,23 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title></title>
+	<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" />
+	<link rel="stylesheet" href="<c:url value="/resources/css/home.css" />" />
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
-<br />
-<a href="newPatient">Dodaj pacjenta</a>
-<br />
-<a href="patientList">Lista pacjentow</a>
+<div id="wrapper">
+	<h1>
+		Welcome to Accidents manager!
+	</h1>
+	<div>
+		<div class="homeLink">
+			<a href="newPatient">Dodaj pacjenta</a>
+		</div>
+		<div class="homeLink">
+			<a href="patientList">Lista pacjentow</a>
+		</div>
+	</div>
+</div>
 </body>
 </html>

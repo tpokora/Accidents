@@ -7,24 +7,32 @@ function dateValidation(str) {
 	return pattern.test(str) ? true : false;
 }
 
-function formValidation(formName) {
+function newPatientformValidation(formName) {
 	var form = document.getElementById(formName);
 	var errors = 0;
 	if (form.firstName.value == '') {
-		ferror.innerHTML = 'Nie podales imienia';
+		ferror.style.display = "block";
 		errors = 1;
+	} else {
+		ferror.style.display = "none";
 	}
 	if (form.lastName.value == '') {
-		lerror.innerHTML = 'Nie podales nazwiska';
+		lerror.style.display = "block";
 		errors = 1;
+	} else {
+		lerror.style.display = "none";
 	}
 	if (form.accident.value == '') {
-		aerror.innerHTML = 'Nie opisales urazu';
+		aerror.style.display = "block";
 		errors = 1;
+	} else {
+		aerror.style.display = "none";
 	}
 	if (!dateValidation(form.accidentDate.value)) {
-		aderror.innerHTML = 'Zly format daty';
+		aderror.style.display = "block";
 		errors = 1;
+	} else {
+		aderror.style.display = "none";
 	}
 
 	if (errors == 1)
