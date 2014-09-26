@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+#wrapper {
+	width: 880px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	font-family: "Helvetical, Arial", sans-serif;
+	background-color: #eee;
+}

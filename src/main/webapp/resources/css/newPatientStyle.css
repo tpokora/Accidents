@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+h2 {
+	text-align: center;
+}
+
+#patientForm {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#patientForm .input input, textarea {
+	width: 200px;
+	padding: 6px;
+	text-align: center;
+}
+
+#patientForm div {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+#newPatientButton {
+	width: 300px;
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	text-align: center;
+	background-color: #2E7CD4;
+	border: 0px;
+	color: #fff;
+	font-size: 16px;
+}
+
+#newPatientButton:hover {
+	background-color: #2EA4D4;
+}
+
+.homeLink {
+	width: 300px;
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background-color: #2E7CD4;
+}
+
+.homeLink a {
+	display: block;
+	padding: 4px;
+	text-decoration: none;
+	color: #fff;
+}
+
+.homeLink a:hover {
+	background-color: #2EA4D4;
+}
+
+.error {
+	color: red;	
+	display: none;
+}
