@@ -2,6 +2,7 @@ package org.health.accidents.entity;
 
 import static org.junit.Assert.*;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.After;
@@ -23,8 +24,12 @@ public class PatientEntityTest {
 
 	@Before
 	public void setUp() throws Exception {
-		patient = new PatientEntity("Tommy", "Lee", "Car accident", 
-				new Date(2014, 9, 22));
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, 2014);
+		cal.set(Calendar.MONTH, 9);
+		cal.set(Calendar.DAY_OF_MONTH, 22);
+		Date date = cal.getTime();
+		patient = new PatientEntity("Tommy", "Lee", "Car accident", date);
 	}
 
 	@After
@@ -49,8 +54,13 @@ public class PatientEntityTest {
 
 	@Test
 	public void testGetAccidentDate() {
-		Date date = new Date(2014, 9, 22);
-		assertEquals("getAccidentDate() should return 'Thu Oct 22 00:00:00 CEST 3914'", 
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, 2014);
+		cal.set(Calendar.MONTH, 9);
+		cal.set(Calendar.DAY_OF_MONTH, 22);
+		Date date = cal.getTime();
+		assertEquals("getAccidentDate() should return 'Thu Oct 22 'current time' CEST 2014'", 
 				date, patient.getAccidentDate());
+		System.out.println(patient.getAccidentDate().toString());
 	}
 }

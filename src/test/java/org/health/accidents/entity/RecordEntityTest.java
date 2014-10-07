@@ -2,6 +2,7 @@ package org.health.accidents.entity;
 
 import static org.junit.Assert.*;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.After;
@@ -23,11 +24,13 @@ public class RecordEntityTest {
 
 	@Before
 	public void setUp() throws Exception {
-		date = new Date(2014, 9, 22);
-		date.setHours(3);
-		date.setMinutes(20);
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, 2014);
+		cal.set(Calendar.MONTH, 9);
+		cal.set(Calendar.DAY_OF_MONTH, 22);
+		date = cal.getTime();
 		record = new RecordEntity(date, 2, "Car accident", 3);
-		record.setId(1);
+		record.setId(1);	
 	}
 
 	@After
