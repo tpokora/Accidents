@@ -28,8 +28,10 @@ public class PatientDAOImpl implements PatientDAO {
 
 	@Override
 	public PatientEntity getPatientById(int id) {
-		Query q = sessionFactory.getCurrentSession().getNamedQuery("findPatientById");
-		q.setParameter("id", id);
+		//Query q = sessionFactory.getCurrentSession().getNamedQuery("findPatientById");
+		Query q = sessionFactory.getCurrentSession()
+				.createQuery("FROM PatientEntity as p LEFT JOIN FETCH p.records WHERE p.id =" + id);
+		//q.setParameter("id", id);
 		return (PatientEntity) q.uniqueResult();
 	}
 	

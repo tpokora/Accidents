@@ -1,12 +1,14 @@
 package org.health.accidents.entity;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @NamedQuery(
@@ -20,6 +22,7 @@ public class PatientEntity {
 	private String lastName;
 	private String accident;
 	private Date accidentDate;
+	private Set<RecordEntity> records;
 	
 	public PatientEntity() {}
 	
@@ -76,6 +79,15 @@ public class PatientEntity {
 	
 	public void setAccidentDate(Date accidentDate) {
 		this.accidentDate = accidentDate;
+	}
+	
+	@OneToMany
+	public Set<RecordEntity> getRecords() {
+		return records;
+	}
+	
+	public void setRecords(Set<RecordEntity> records) {
+		this.records = records;
 	}
 
 }

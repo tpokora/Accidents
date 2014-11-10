@@ -2,6 +2,7 @@ package org.health.accidents.dao;
 
 import java.util.ArrayList;
 
+import org.health.accidents.entity.PatientEntity;
 import org.health.accidents.entity.RecordEntity;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
